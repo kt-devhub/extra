@@ -14,3 +14,11 @@ trim_trailing_whitespace = true
 
 [*.{yml,yaml}]
 indent_size = 2
+
+# DOS/Win requires BAT/CMD files to have CRLF newlines
+[*.{bat,cmd,BAT,CMD,Bat,Cmd}]
+end_of_line = crlf
+
+# TAB-style indentation for Makefiles
+[Makefile,*.mk]
+indent_style = tab

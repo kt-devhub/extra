@@ -1,0 +1,53 @@
+{
+    "version": "3.25.27.0",
+    "description": "An enhanced clipboard manager",
+    "homepage": "https://ditto-cp.sourceforge.io",
+    "license": "GPL-3.0-only",
+    "architecture": {
+        "64bit": {
+            "url": "https://github.com/sabrogden/Ditto/releases/download/nightly/DittoPortable_64bit_3_25_27_0.zip",
+            "hash": "7d2b62a444b9cfb12a32762eb9eb25f10fe638b1c8d9a3108869909551e20a83"
+        },
+        "32bit": {
+            "url": "https://github.com/sabrogden/Ditto/releases/download/nightly/DittoPortable_3_25_27_0.zip",
+            "hash": "e591ac01a6ecca4a7c8ec6955f2e4a6d51067d898d8cff53576f0239eef18bd9"
+        }
+    },
+    "extract_dir": "Ditto",
+    "pre_install": [
+        "if (!(Test-Path \"$persist_dir\\Ditto.Settings\")) { New-Item \"$dir\\Ditto.Settings\" -Value \"[Ditto]`nDBPath3=Ditto.db\" | Out-Null }",
+        "if (!(Test-Path \"$persist_dir\\Ditto.db\")) {",
+        "    Write-Host 'File Ditto.db does not exists. Creating.' -f Yellow",
+        "    Start-Process \"$dir\\Ditto.exe\"",
+        "    Start-Sleep -Milliseconds 500",
+        "    Start-Process \"$dir\\Ditto.exe\" /exit",
+        "}"
+    ],
+    "bin": "Ditto.exe",
+    "shortcuts": [
+        [
+            "Ditto.exe",
+            "Ditto"
+        ]
+    ],
+    "persist": [
+        "Ditto.db",
+        "Ditto.Settings"
+    ],
+    "checkver": {
+        "url": "https://api.github.com/repos/sabrogden/Ditto/releases",
+        "jsonpath": "$[0].assets[?(@.name =~ /DittoPortable_64bit/i)]",
+        "regex": "\"name\":\\s*\"DittoPortable_64bit_(?<ver>.*?).zip\"",
+        "replace": "${ver//_/.}"
+    },
+    "autoupdate": {
+        "architecture": {
+            "64bit": {
+                "url": "https://github.com/sabrogden/Ditto/releases/download/nightly/DittoPortable_64bit_$matchVer.zip"
+            },
+            "32bit": {
+                "url": "https://github.com/sabrogden/Ditto/releases/download/nightly/DittoPortable_$matchVer.zip"
+            }
+        }
+    }
+}

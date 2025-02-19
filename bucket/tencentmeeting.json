@@ -1,0 +1,31 @@
+{
+    "version": "3.30.2.413",
+    "description": "腾讯会议是腾讯云旗下的一款音视频会议软件",
+    "homepage": "https://meeting.tencent.com",
+    "license": "BSD-3-Clause",
+    "url": "https://updatecdn.meeting.qq.com/cos/183af975462c9f95ff2770154f85dad7/TencentMeeting_0300000000_3.30.2.413_x86_64.publish.officialwebsite.exe#/dl.7z",
+    "pre_install": [
+        "Rename-Item \"$dir\\`$_*_\" \"$dir\\$version\"",
+        "Remove-Item \"$dir\\`$*\", \"$dir\\wemeetapp_new.exe\" -Recurse -Force",
+        "startmenu_shortcut -target $(Get-Item \"$dir\\wemeetapp.exe\") -shortcutName \"Tencent Meeting\"",
+        "startmenu_shortcut -target $(Get-Item \"$dir\\wemeetapp.exe\") -shortcutName \"腾讯会议\""
+    ],
+    "installer": {
+        "script": [
+            "Rename-Item \"$dir\\`$_22_\" \"$dir\\$version\"",
+            "Remove-Item \"$dir\\wemeetapp_new.exe\" -Force",
+            "Remove-Item \"$dir\\`$TEMP\", \"$dir\\`$WINDIR\", \"$dir\\`$PLUGINSDIR\" -Force -Recurse"
+        ]
+    },
+    "pre_uninstall": [
+        "if (Get-Process -Name \"wemeetapp\" -Erroraction SilentlyContinue) {Stop-Process -Name \"wemeetapp\"}",
+        "if (Test-Path \"$(shortcut_folder)Tencent Meeting.lnk\") {Remove-Item \"$(shortcut_folder)Tencent Meeting.lnk\" -Force}",
+        "if (Test-Path \"$(shortcut_folder)腾讯会议.lnk\") {Remove-Item \"$(shortcut_folder)腾讯会议.lnk\" -Force}"
+    ],
+    "shortcuts": [
+        [
+            "WeMeetApp.exe",
+            "Tencent Meeting"
+        ]
+    ]
+}
