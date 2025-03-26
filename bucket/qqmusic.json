@@ -1,0 +1,33 @@
+{
+    "##": "QQ音乐",
+    "version": "21.20",
+    "description": "[QQ音乐] 千万正版音乐海量无损曲库新歌热歌天天畅听的高品质音乐平台",
+    "homepage": "https://y.qq.com",
+    "license": "Freeware",
+    "url": "https://dldir1v6.qq.com/music/clntupate/QQMusic_Setup_2121.exe#/dl.7z",
+    "hash": "399ccdb333b306802479da671b116e48550e63df807ef1d2ec80fe8992cf5e4f",
+    "post_install": "Copy-Item \"$dir\\QQMusic.tpc\" \"$dir\\instok\"",
+    "checkver": {
+        "script": [
+            "$api = 'https://u6.y.qq.com/cgi-bin/musicu.fcg'",
+            "$body = '{\"comm\":{\"ct\":\"19\",\"cv\":\"2022\",\"tmeAppID\":\"qqmusic\"},\"platform.uniteUpdate.UniteUpdateSvr.QueryUpdate\":{\"method\":\"QueryUpdate\",\"module\":\"platform.uniteUpdate.UniteUpdateSvr\",\"param\":{\"chid\":\"1001\",\"osVer\":1}}}'",
+            "$Response = (Invoke-RestMethod $api -Method POST -Body $body) | ConvertTo-Json -Compress",
+            "return $Response"
+        ],
+        "regex": "QQMusic_Setup_(?<version>(?<major>\\d{2})(?<minor>\\d{2})).exe",
+        "replace": "${major}.${minor}"
+    },
+    "shortcuts": [
+        [
+            "QQMusic.exe",
+            "QQ音乐"
+        ],
+        [
+            "QQMusic.exe",
+            "QQ Music"
+        ]
+    ],
+    "autoupdate": {
+        "url": "https://dldir1v6.qq.com/music/clntupate/QQMusic_Setup_$cleanVersion.exe#/dl.7z"
+    }
+}
