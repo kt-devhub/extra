@@ -8,8 +8,7 @@
         "args": [
             "/silent",
             "/dir=\"$dir\"",
-            "/install_type=portable",
-            "/create_shortcuts=no"
+            "/install_type=portable"
         ]
     },
     "bin": [
