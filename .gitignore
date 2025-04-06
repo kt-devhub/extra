@@ -1,6 +1,8 @@
 *~
 ._*
 /checkver*
+Thumbs.db
+desktop.ini
 .idea
 *.iml
 # .vscode/
