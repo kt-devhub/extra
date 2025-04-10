@@ -10,11 +10,12 @@
         }
     },
 "pre_install": [
-        "$msi = \"$dir\\$fname\"; $extracted = \"$dir\\\"",
-        "Invoke-ExternalCommand 'lessmsi' -Args @('x', $msi, $extracted) -Quiet",
-        "Move-Item \"$dir\\SourceDir\\monday\\**\" \"$dir\"",
-        "Remove-Item \"$dir\\SourceDir\", \"$dir\\$fname\" -Force -Recurse"
-    ],
+    "$msi = \"$dir\\$fname\"",
+    "Invoke-ExternalCommand 'lessmsi' -Args @('x', $msi, \"$dir\") -Quiet",
+    "Move-Item \"$dir\\monday\\*\" \"$dir\" -Force",
+    "if (Test-Path \"$dir\\monday\") { Remove-Item \"$dir\\monday\" -Force -Recurse }",
+    "if (Test-Path \"$dir\\$fname\") { Remove-Item \"$dir\\$fname\" -Force }"
+],
     "bin": [
         "monday.exe"
     ],
