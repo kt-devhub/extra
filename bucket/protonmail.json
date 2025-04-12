@@ -17,8 +17,8 @@
         ]
     ],
     "checkver": {
-        "url": "https://github.com/ProtonMail/WebClients/blob/main/applications/inbox-desktop/package.json",
-        "regex": "\"version\":\\s*\"([\\d.]+)\""
+        "url": "https://raw.githubusercontent.com/ProtonMail/WebClients/main/applications/inbox-desktop/package.json",
+        "jsonpath": "$.version"
     },
     "autoupdate": {
         "url": "https://proton.me/download/mail/windows/$version/proton_mail-$version-full.nupkg",
