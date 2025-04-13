@@ -5,7 +5,7 @@
     "license": "GPL-3.0-only",
     "architecture": {
         "64bit": {
-            "url": "https://proton.me/download/drive/windows/1.7.11/Proton%20Drive%20Setup%201.7.11.exe",
+            "url": "https://proton.me/download/drive/windows/1.7.11/x64/Proton%20Drive%20Setup%201.7.11.exe",
             "hash": "5dc3a632e1434214c01d2ac760002fcddaedfc3e4dc5cdb60a5ab49d20ab21e2"
         }
     },
@@ -29,6 +29,6 @@
         "jsonpath": "$.Releases[0].Version"
     },
     "autoupdate": {
-        "url": "https://proton.me/download/drive/windows/$version/Proton%20Drive%20Setup%20$version.exe"
+        "url": "https://proton.me/download/drive/windows/$version/x64/Proton%20Drive%20Setup%20$version.exe"
     }
 }
