@@ -1,5 +1,5 @@
 {
-    "version": "0.47.9",
+    "version": "1.0.1",
     "description": "The AI Code Editor",
     "homepage": "https://www.cursor.com/",
     "license": {
@@ -9,8 +9,8 @@
     "innosetup": true,
     "architecture": {
         "64bit": {
-            "url": "https://downloads.cursor.com/production/b6fb41b5f36bda05cab7109606e7404a65d1ff32/win32/x64/user-setup/CursorUserSetup-x64-0.47.9.exe",
-            "hash": "sha256:92db71d435ae73928f3b2ed5e7b6758721e6ac7096ed5523b097ed4c12e45fe2"
+            "url": "https://downloads.cursor.com/production/9f54c226145b02c8dd0771069db954e0ab5fa1b8/win32/x64/user-setup/CursorUserSetup-x64-1.0.1.exe",
+            "hash": "sha256:21a932347586dd7ea0dd7727b458e6ee7cb859f169f00bd79426857fddd17ba9"
         }
     },
     "extract_dir": "{code_GetDestDir}",
@@ -30,7 +30,13 @@
         "    (Get-Content \"$extensions_file\") -replace '(?<=cursor(/|\\\\\\\\)).*?(?=(/|\\\\\\\\)data(/|\\\\\\\\)extensions)', $version | Set-Content \"$extensions_file\"",
         "}"
     ],
-    "bin": "resources\\app\\bin\\cursor.cmd",
+    "bin":  [
+        [
+            "resources\\app\\bin\\cursor.cmd",
+            "",
+            "--user-data-dir=\"$dir\\data\\user-data\" --extensions-dir=\"$dir\\data\\extensions\""
+        ]
+    ],
     "shortcuts": [
         [
             "Cursor.exe",
