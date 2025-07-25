@@ -1,5 +1,5 @@
 {
-    "version": "3_25_69_0-20250722",
+    "version": "3_25_69_0",
     "description": "An enhanced clipboard manager",
     "homepage": "https://ditto-cp.sourceforge.io",
     "license": "GPL-3.0-only",
@@ -33,14 +33,7 @@
     "checkver": {
         "url": "https://api.github.com/repos/sabrogden/Ditto/releases",
         "jsonpath": "$[0].assets[?(@.name =~ /DittoPortable_/i)]",
-        "regex": "(?s)\"name\":\\s*\"DittoPortable_(?<ver>.*?).zip\".*\"updated_at\":\\s*\"(?<y>\\d{4})-(?<m>\\d{2})-(?<d>\\d{2})T",
-        "replace": "${ver}-${y}${m}${d}"
-    },
-    "autoupdate": {
-        "architecture": {
-            "64bit": {
-                "url": "https://github.com/sabrogden/Ditto/releases/download/nightly/DittoPortable_$matchVer.zip"
-            }
-        }
+        "regex": "\"name\":\\s*\"DittoPortable_(?<ver>[^\"_]+)",
+        "replace": "${ver}"
     }
 }
