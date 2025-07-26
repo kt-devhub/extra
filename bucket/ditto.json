@@ -27,7 +27,6 @@
         ]
     ],
     "persist": [
-        "Ditto.db",
         "Ditto.Settings"
     ],
     "checkver": {
