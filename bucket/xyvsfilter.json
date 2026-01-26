@@ -3,7 +3,6 @@
     "description": "High Quality Subtitle Rendering",
     "version": "3.2.0.810",
     "license": "GPL-2.0",
-    "depends": "sudo",
     "url": "https://github.com/pinterf/xy-VSFilter/releases/download/3.2.0.810/xyVSFilterSubFilter-pfmod-3.2.0.810.7z",
     "hash": "742202308b27e94b016877fe4f4637ab810d5319b2e633bce950b2ed53113ebd",
     "architecture": {
@@ -11,9 +10,11 @@
             "extract_dir": "x64"
         }
     },
-    "post_install": "Start-Process \"$dir\\Install_XySubFilter.bat\"",
+    "post_install": [
+        "Start-Process \"$dir\\Install_XySubFilter.bat\" -Verb RunAs -Wait"
+    ],
     "uninstaller": {
-        "script": "Start-Process \"$dir\\Uninstall_XySubFilter.bat\""
+        "script": "Start-Process \"$dir\\Uninstall_XySubFilter.bat\" -Verb RunAs -Wait"
     },
     "checkver": {
         "github": "https://github.com/pinterf/xy-VSFilter/"
