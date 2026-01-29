@@ -27,7 +27,8 @@
         ]
     ],
     "persist": [
-        "Ditto.Settings"
+        "Ditto.Settings",
+        "Themes/Dracula.xml"
     ],
     "checkver": {
         "url": "https://api.github.com/repos/sabrogden/Ditto/releases",
