@@ -9,7 +9,7 @@
     ],
     "architecture": {
         "64bit": {
-            "url": "https://cdn.wostatic.cn/dist/installers/wolai%20Setup%201.2.11.exe#/dl.7z",
+            "url": "https://cdn.wostatic.cn/dist/installers/wolaiSetup1.2.11.exe#/dl.7z",
             "hash": "sha512:25b890b343a2de35993e6bb4e84a5575933f0ac7d747534a908d6144067fdf1f0620159b56cb899fe92efe2eb3dde79f6f053b0a8e212e23b2edc63eddd378f9",
             "pre_install": [
                 "Expand-7zipArchive \"$dir\\`$PLUGINSDIR\\app-64.7z\" \"$dir\"",
@@ -30,7 +30,7 @@
     "autoupdate": {
         "architecture": {
             "64bit": {
-                "url": "https://cdn.wostatic.cn/dist/installers/wolai%20Setup%20$version.exe#/dl.7z",
+                "url": "https://cdn.wostatic.cn/dist/installers/wolaiSetup$version.exe#/dl.7z",
                 "hash": {
                     "url": "https://cdn.wostatic.cn/dist/installers/electron-versions.json",
                     "regex": "exe.+\\n.+ \"$base64"
