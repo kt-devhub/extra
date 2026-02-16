@@ -1,0 +1,32 @@
+{
+    "version": "1.4.1",
+    "description": "ZenMenu (formerly TrayToolbar) — a customizable system tray toolbar for Windows.",
+    "homepage": "https://github.com/rojarsmith/zen-menu",
+    "license": "MIT",
+    "url": "https://github.com/rojarsmith/zen-menu/releases/download/2.0.0/zenmenu-2.0.0-win64.zip",
+    "hash": "abbef135ae785b09f7d50069041908ae7d14f0908f434ad03f41cd248c21f556",
+    "installer": {
+        "script": [
+            "Rename-Item \"$dir\\zenmenu*.exe\" \"$dir\\zenmenu.exe\""
+        ]
+    },
+    "bin": "zenmenu.exe",
+    "shortcuts": [
+        [
+            "zenmenu.exe",
+            "ZenMenu"
+        ]
+    ],
+
+    "checkver": {
+        "url": "https://api.github.com/repos/rojarsmith/zen-menu/releases/latest",
+        "jsonpath": "$.tag_name"
+    },
+
+    "autoupdate": {
+        "url": "https://github.com/rojarsmith/zen-menu/releases/download/$version/zenmenu-$version-win64.zip",
+        "hash": {
+            "url": "$url.sha256"
+        }
+    }
+}
