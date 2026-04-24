@@ -4,7 +4,7 @@
     "homepage": "https://github.com/guohuiyuan/go-music-dl",
     "license": "AGPL-3.0-only",
     "notes": [
-        "本包使用 go-music-dl 的 Windows 桌面端资产（music-dl-desktop.exe）",
+        "本包使用 go-music-dl 的 Windows 桌面端资产（music-dl-desktop-rust.exe）",
         "应用数据目录：%LOCALAPPDATA%\\go-music-dl\\",
         "  - data\\settings.db：Web 设置、本地歌单与 Cookie 数据库",
         "  - data\\downloads：桌面端受管下载目录",
@@ -34,7 +34,7 @@
         "    '$env:TMP = $tempDir',",
         "    '$env:MUSIC_DL_CONFIG_DB = $settingsDb',",
         "    '$env:MUSIC_DL_COOKIE_FILE = $cookieFile',",
-        "    '$exe = Join-Path $appDir ''music-dl-desktop.exe''',",
+        "    '$exe = Join-Path $appDir ''music-dl-desktop-rust.exe''',",
         "    '$proc = Start-Process -FilePath $exe -WorkingDirectory $appDir -PassThru',",
         "    '$settingsUrl = ''http://127.0.0.1:37777/music/settings''',",
         "    '$payload = @{ embedDownload = $false; downloadToLocal = $true; downloadDir = $downloadDir } | ConvertTo-Json -Compress',",
