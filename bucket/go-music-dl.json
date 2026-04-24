@@ -4,6 +4,8 @@
     "homepage": "https://github.com/guohuiyuan/go-music-dl",
     "license": "AGPL-3.0-only",
     "notes": [
+        "https://github.com/maqibg/MQBucket/blob/master/bucket/go-music-dl.json",
+        "https://github.com/DoveBoy/Apps/blob/master/bucket/go-music-dl.json",
         "本包使用 go-music-dl 的 Windows 桌面端资产（music-dl-desktop-rust.exe）",
         "应用数据目录：%LOCALAPPDATA%\\go-music-dl\\",
         "  - data\\settings.db：Web 设置、本地歌单与 Cookie 数据库",
