@@ -1,5 +1,5 @@
 {
-    "version": "2.4.21",
+    "version": "3.6.31",
     "description": "The AI Code Editor",
     "homepage": "https://www.cursor.com/",
     "license": {
@@ -9,12 +9,12 @@
     "innosetup": true,
     "architecture": {
         "64bit": {
-            "url": "https://downloads.cursor.com/production/dc8361355d709f306d5159635a677a571b277bcc/win32/x64/user-setup/CursorUserSetup-x64-2.4.21.exe",
-            "hash": "1429d09b628ce5af85539e627aef740e1a91b90f54edd0c116d1fbd3ef33cee4"
+            "url": "https://downloads.cursor.com/production/81fcf2931d7687b4ff3f3017858d0c6dee7e2a68/win32/x64/user-setup/CursorUserSetup-x64-3.6.31.exe",
+            "hash": "c6c45ed271986dcc5cffb64811156d395ccb9b60c3d9ff45a20c56781907aa6e"
         },
         "arm64": {
-            "url": "https://downloads.cursor.com/production/dc8361355d709f306d5159635a677a571b277bcc/win32/arm64/user-setup/CursorUserSetup-arm64-2.4.21.exe",
-            "hash": "1810d8f9abbe1fb43c7595e1166eeace5289613f29b3bf3c710f5bec1c6cc0a0"
+            "url": "https://downloads.cursor.com/production/81fcf2931d7687b4ff3f3017858d0c6dee7e2a68/win32/arm64/user-setup/CursorUserSetup-arm64-3.6.31.exe",
+            "hash": "904a9f5b137e2d6a2c18e7ff293e66f97c8060d89589319f606b6d5f38459b0b"
         }
     },
     "extract_dir": "{code_GetDestDir}",
@@ -37,7 +37,7 @@
     "bin": [
         [
             "resources\\app\\bin\\cursor.cmd",
-            "",
+            "cursor",
             "--user-data-dir=\"$dir\\data\\user-data\" --extensions-dir=\"$dir\\data\\extensions\""
         ]
     ],
@@ -52,5 +52,15 @@
     "checkver": {
         "url": "https://www.cursor.com/api/download?platform=win32-x64-user&releaseTrack=stable",
         "regex": "production/(?<Code>[\\w]+)/win32.*-([\\d.]+)\\.exe"
+    },
+    "autoupdate": {
+        "architecture": {
+            "64bit": {
+                "url": "https://downloads.cursor.com/production/$matchCode/win32/x64/user-setup/CursorUserSetup-x64-$version.exe"
+            },
+            "arm64": {
+                "url": "https://downloads.cursor.com/production/$matchCode/win32/arm64/user-setup/CursorUserSetup-arm64-$version.exe"
+            }
+        }
     }
 }
